@@ -8,7 +8,7 @@
 <?php
 echo "MySql 연결 테스트<br>";
  
-$db = mysqli_connect("127.0.0.1", "root", "Ddr7979556!", "portfolio");
+$db = mysqli_connect("127.0.0.1", "root", "Ddr7979556!", "mysql");
  
 if($db){
     echo "connect : 성공<br>";
