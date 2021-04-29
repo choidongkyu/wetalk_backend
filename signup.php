@@ -14,6 +14,7 @@
                     //중복되는 id가 있을 경우
                     if($row['id'] == $id) {
                         $result = -100;
+                        echo $result;
                         mysqli_close($db);
                         exit;
                     }
