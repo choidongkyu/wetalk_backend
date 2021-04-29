@@ -48,29 +48,4 @@
         echo $result;
         mysqli_close($db);
     }
-
-
-    $id = "+8210-1234-1234";
-
-        //mysql 연결
-        $db = mysqli_connect("127.0.0.1", "root", "Ddr7979556!", "wetalk");
-        if($db) {
-             $sql = "insert into t_user (id) values ('$id')";
-             $res = $db->query($sql);
-             //정상적으로 데이터베이스가 생성 될 경우
-             if($res) {
-                $result = 200;
-                echo $result;
-             }
-             else {//정상적으로 데이터베이스가 생성되지 않을 경우
-                $result = -1;
-                echo $result;
-             }
-        }
-        //mysql 연결이 정상적으로 되지 않을 경우
-        else { 
-            $result = 404;
-             echo $result;
-        }
-        mysqli_close($db);
 ?>
