@@ -44,7 +44,7 @@
     //중복체크 요청이 온 경우
     if(isset($_GET["id"])) {
         $id = $_GET["id"];
-        $result["retCode"] = 0;
+        $result = 0;
         //중복검사를 위한 데이터 조회
         $db = mysqli_connect("127.0.0.1", "root", "Ddr7979556!", "wetalk");
         if($db) {
