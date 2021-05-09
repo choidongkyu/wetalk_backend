@@ -1,6 +1,7 @@
 <?php 
     if(isset($_POST["id"])) {
         $id = $_POST["id"];
+        $userName = $_POST["userName"];
 
         //mysql 연결
         $db = mysqli_connect("127.0.0.1", "root", "Ddr7979556!", "wetalk");
@@ -21,7 +22,7 @@
                 }
             }
 
-             $sql = "insert into t_user (id) values ('$id')";
+             $sql = "insert into t_user (id, name) values ('$id','$userName')";
              $res = $db->query($sql);
              //정상적으로 데이터베이스가 생성 될 경우
              if($res) {
