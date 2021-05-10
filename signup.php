@@ -71,7 +71,9 @@
             if($db) {
                 $sql = "select name from t_user where id = '$id'";
                 $res = mysqli_query($db, $sql);
-                echo $res;
+                while($row = mysqli_fetch_assoc($res)) {
+                    echo $row;
+                }
             }
             mysqli_close($db);
 
