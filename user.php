@@ -18,8 +18,9 @@ if(isset($_GET["request"])) {
             $res = mysqli_query($db, $sql);
             while($row = mysqli_fetch_assoc($res)) {
                 $list[] = $row;
-                echo json_encode($list);
             }
+
+            echo json_encode($list);
         }
     }
 }
