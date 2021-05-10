@@ -5,8 +5,7 @@
 
         //mysql 연결
         $db = mysqli_connect("127.0.0.1", "root", "Ddr7979556!", "wetalk");
-        if($db) {
-            
+        if($db) {    
             //중복체크
             $sql = "select id from t_user";
             $res = mysqli_query($db, $sql);
@@ -63,5 +62,19 @@
         }
         echo $result;
         mysqli_close($db);
+    }
+
+    if(isset($_GET["request"])) {
+        if($_GET["request"] == "getName") { //클라이언트가 이름을 요청한 경우
+            $id = $_GET["phone"];
+            $db = mysqli_connect("127.0.0.1", "root", "Ddr7979556!", "wetalk");
+            if($db) {
+                $sql = "select name from t_user where id = '$id'";
+                $res = mysqli_query($db, $sql);
+                echo $res;
+            }
+            mysqli_close($db);
+
+        }
     }
 ?>
