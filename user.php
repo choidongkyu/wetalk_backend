@@ -23,6 +23,17 @@ if(isset($_GET["request"])) {
                 echo json_encode($list);
             }
             break;
+
+        case "getStatusMsg":
+            if($db) {
+                $id = $_GET["phone"];
+                $sql = "select profile_text from t_user where id = '$id'";
+                $res = mysqli_query($db, $sql);
+                while($row = mysqli_fetch_assoc($res)) {
+                    echo $row["msg"];
+                }
+            }
+            break;
         }
         
         mysqli_close($db);
