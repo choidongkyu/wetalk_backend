@@ -30,7 +30,7 @@ if(isset($_GET["request"])) {
                 $sql = "select profile_text from t_user where id = '$id'";
                 $res = mysqli_query($db, $sql);
                 while($row = mysqli_fetch_assoc($res)) {
-                    echo $row["msg"];
+                    echo $row["profile_text"];
                 }
             }
             break;
