@@ -38,4 +38,25 @@ if(isset($_GET["request"])) {
         
         mysqli_close($db);
     }
+
+//상태 메시지 변경 요청
+if(isset($_POST["status_msg"])) {
+    $db = mysqli_connect("127.0.0.1", "root", "Ddr7979556!", "wetalk");
+    $msg = $_POST["status_msg"];
+    $id = $_POST["phone"];
+    if($db) {
+        $msg = $_POST["status_msg"];
+        $sql = "update t_user set profile_text = '$msg' where id = '$id'";
+        $res = $db->query($sql);
+        //정상적으로 데이터베이스가 update 될 경우
+        if($res) {
+            $result = 200;
+            echo $result;
+        }
+        else {//정상적으로 데이터베이스가 update 되지 않을 경우
+            $result = -1;
+            echo $result;
+        }
+    }
+}
 ?>
