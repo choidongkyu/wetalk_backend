@@ -25,7 +25,7 @@
     }
     $db = mysqli_connect("127.0.0.1", "root", "Ddr7979556!", "wetalk");
     $sql = "SELECT NOW()";
-    $res = $this->db->query($sql);
+    $res = $db->query($sql);
     $data = mysqli_fetch_row($res);
     echo $data[0];
     mysqli_close($db);
