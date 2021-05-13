@@ -6,6 +6,7 @@
 <body>
  
 <?php
+phpinfo();
 echo "MySql 연결 테스트<br>";
  
 $db = mysqli_connect("127.0.0.1", "root", "Ddr7979556!", "mysql");
