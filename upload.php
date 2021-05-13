@@ -8,14 +8,8 @@
             $data = mysqli_fetch_row($res);
             $data = $data[0];
 
-            $sql = "update t_user set profile_img = '$data' where id = '$id'";
+            $sql = "update t_user set profile_image = '$data' where id = '$id'";
             $res = $db->query($sql);
-            //정상적으로 데이터베이스가 update 되지 않은 경우
-            if(!$res) {
-                $result = -1;
-                echo $result;
-                return;
-            }
         
 
             $result = -1;
