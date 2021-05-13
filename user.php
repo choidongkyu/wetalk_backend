@@ -34,6 +34,17 @@ if(isset($_GET["request"])) {
                 }
             }
             break;
+
+        case "getUser":
+            if($db) {
+                $id = $_GET["phone"];
+                $sql = "select * from t_user where id = '$id'";
+                $res = mysqli_query($db, $sql);
+                while($row = mysqli_fetch_assoc($res)) {
+                    echo json_encode($row);
+                }
+            }
+            break;
         }
         
         mysqli_close($db);
