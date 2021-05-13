@@ -23,4 +23,9 @@
         }
         mysqli_close($db);
     }
+
+    $sql = "SELECT NOW()";
+    $res = $this->db->query($sql);
+    $data = mysqli_fetch_row($res);
+    echo $data[0];
 ?>
