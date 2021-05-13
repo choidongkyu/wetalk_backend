@@ -1,16 +1,32 @@
 <?php 
     if(isset($_POST['id'])) {
+        $db = mysqli_connect("127.0.0.1", "root", "Ddr7979556!", "wetalk");
         $id = $_POST['id'];
-        $result = 0;
-        $file_path = './profile_image/'.$id.'.jpg';
-        if(file_exists($_FILES['file']['tmp_name']) && is_uploaded_file($_FILES['file']['tmp_name'])) {
-            $result = 1;
-            if(move_uploaded_file($_FILES['file']['tmp_name'], $file_path)) {
-                $result = 200;
-            }else {
+        if($db) {
+            $sql = "SELECT NOW()";
+            $res = $this->db->query($sql);
+            $data = mysqli_fetch_row($res);
+            $data = $data[0];
+
+            $sql = "update t_user set profile_img = '$data' where id = '$id'";
+            $res = $db->query($sql);
+            //정상적으로 데이터베이스가 update 되지 않은 경우
+            if(!$res) {
                 $result = -1;
+                echo $result;
+                return;
             }
+        
+
+            $result = -1;
+            $file_path = './profile_image/'.$id.'.jpg';
+            if(file_exists($_FILES['file']['tmp_name']) && is_uploaded_file($_FILES['file']['tmp_name'])) {
+                if(move_uploaded_file($_FILES['file']['tmp_name'], $file_path)) {
+                    $result = 200;
+                }
+            }
+            echo $result;
         }
-        echo $result;
+        mysqli_close($db);
     }
 ?>
