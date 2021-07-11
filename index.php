@@ -28,9 +28,10 @@
 // $data = mysqli_fetch_assoc($result);
 // echo $data['VERSION'];
 
-$path = "+821026595819,+15555215558";
+$path = "chatImage/+821026595819,+15555215558";
 if (!file_exists($path)) {
     mkdir($path, 0777, true);
+    echo "success!";
 }
 
 ?>
