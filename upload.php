@@ -27,8 +27,13 @@
     if(isset($_POST['roomName'])) {
         $name = $_POST['name'];
         $roomName = $_POST['roomName'];
-        $_result = -1;
+        $result = -1;
+        $path = "chatImage/".$roomName;
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
         $file_path = "chatImage/".$roomName."/".$name.".jpg";
+        
         if(file_exists($_FILES['image']['tmp_name']) && is_uploaded_file($_FILES['image']['tmp_name'])) {
             if(move_uploaded_file($_FILES['image']['tmp_name'], $file_path)) {
                 $result = 200;
