@@ -24,7 +24,6 @@ if(isset($_GET["request"])) {
                 while($row = mysqli_fetch_assoc($res)) {
                     $list[] = $row;
                 }
-                error_log(var_export($list, 1));
                 echo json_encode($list);
             }
             break;
