@@ -16,10 +16,16 @@ if(isset($_GET["request"])) {
         case "getUserList":
             if($db) {
                 $sql = "select * from t_user";
-                if(isset($_GET["ids"])) {
-                    $ids[] = $_GET["ids"];
-                    error_log(print_r($ids));
+                $res = mysqli_query($db, $sql);
+                while($row = mysqli_fetch_assoc($res)) {
+                    $list[] = $row;
                 }
+                echo json_encode($list);
+            }
+            break;
+        case "getUserListByIds":
+            if($db) {
+                $sql = "select * from t_user";
                 $res = mysqli_query($db, $sql);
                 while($row = mysqli_fetch_assoc($res)) {
                     $list[] = $row;
