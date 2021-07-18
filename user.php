@@ -25,11 +25,14 @@ if(isset($_GET["request"])) {
             break;
         case "getUserListByIds":
             if($db) {
-                $sql = "select * from t_user";
-                $res = mysqli_query($db, $sql);
-                while($row = mysqli_fetch_assoc($res)) {
-                    $list[] = $row;
+                foreach($_GET["ids"] as $value) {
+                    $sql = "select * from t_user where id = '$value'";
+                    $res = mysqli_query($db, $sql);
+                    while($row = mysqli_fetch_assoc($res)) {
+                        $list[] = $row;
+                    }
                 }
+                
                 echo json_encode($list);
             }
             break;
